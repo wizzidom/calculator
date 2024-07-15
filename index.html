@@ -6,40 +6,40 @@
     <title>Calculator</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <script src='main.js' defer></script>
 </head>
 <body>
     <h1>Calculator App</h1>
     <div class="calculator">
         <div class="screen">
-            <p>1</p>
+            <p id = "text"></p>
         </div>
         <div class="buttons">
             <div class="column1">
-                <button onclick="clear()">Clear</button>
+                <button onclick="clears()">Clear</button>
                 <button onclick="deletee()">Delete</button>
             </div>
             <div class="column2">
-                <button id="7">7</button>
-                <button id="8">8</button>
-                <button id="9">9</button>
+                <button onclick="seven()">7</button>
+                <button onclick="eight()">8</button>
+                <button onclick="nine()">9</button>
                 <button onclick="divide()">/</button>
             </div>
             <div class="column3">
-                <button id="4">4</button>
-                <button id="5">5</button>
-                <button id="6">6</button>
+                <button onclick="four()">4</button>
+                <button onclick="five()">5</button>
+                <button onclick="six()">6</button>
                 <button onclick="multiply()">*</button>
             </div>
             <div class="column4">
-                <button id="1">1</button>
-                <button id="2">2</button>
-                <button id="3">3</button>
+                <button onclick="one()">1</button>
+                <button onclick="two()">2</button>
+                <button onclick="three()">3</button>
                 <button onclick="minus()">-</button>
             </div>
             <div class="column5">
-                <button id="comma">.</button>
-                <button id="0">0</button>
+                <button onclick="comma()">.</button>
+                <button onclick="zero()">0</button>
                 <button onclick="equals()">=</button>
                 <button onclick="add()">+</button>
             </div>
