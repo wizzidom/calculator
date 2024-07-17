@@ -1,33 +1,70 @@
-const text = document.getElementById('text');
-const one = () => {return text.textContent = text.textContent +  1};
-const two = () => {return text.textContent = text.textContent + 2};
-const three = () => {return text.textContent = text.textContent +3};
-const four = () => {return text.textContent = text.textContent +4};
-const five = () => {return text.textContent = text.textContent +5};
-const six = () => {return text.textContent = text.textContent +6};
-const seven = () => {return text.textContent = text.textContent +7};
-const eight = () => {return text.textContent = text.textContent +8};
-const nine = () => {return text.textContent = text.textContent +9};
-const zero = () => {return text.textContent = text.textContent +0};
+const screen = document.getElementById('text');
+const numbers = document.querySelectorAll('.number');
+const operators = document.querySelectorAll('.operator');
 
-const clears = () => {return text.textContent = ``};
+let previousValue = '';
+let operate = '';
+let currentValue = '';
 
-function add(){
-    return text.textContent = parseInt(text.textContent) +1;
-}
-function multiply(){
-
-}
-function minus(){
-
-
-}
-function divide(){
-
-}
-function deletee(){
+numbers.forEach(number => {
+    number.addEventListener('click', (e)=>{
+        showNumber(e.target.textContent);
+        screen.textContent = currentValue;
+    })
     
-}
+});
+
+operators.forEach(op => {
+    op.addEventListener('click', (e)=>{
+        operation(e.target.textContent);
+        screen.textContent = currentValue;
+    })
+})
+
 function equals(){
+    previousValue = Number(previousValue);
+    currentValue = Number(currentValue);
+
+    if (operate ==="+"){
+        previousValue += currentValue;
+    }
+    else if(operate === "-"){
+        previousValue -= currentValue;
+    }
+    else if(operate === "/"){
+        previousValue /= currentValue;
+    }
+    else{
+        previousValue *= currentValue;
+    }
+
+
+
+    previousValue = Math.round(previousValue *100)/100;
+    console.log(previousValue);
+    console.log(currentValue)
+
+    previousValue = previousValue.toString();
+    currentValue = previousValue.toString();
+
+}
+function showNumber(num){
+    currentValue += num;
+}
+
+function clears(){
+    screen.textContent = '';
+    previousValue = '';
+    currentValue = '';
+    operate = '';
+}
+
+function deletee(){
+    screen.textContent = (screen.textContent).slice(0,-1)
+}
+function operation(op){
+    operate = op;
+    previousValue = currentValue;
+    currentValue = '';
 
 }
